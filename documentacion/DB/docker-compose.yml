@@ -1,0 +1,14 @@
+version: '3'
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql-container
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: pedidosdb
+      MYSQL_USER: fabiany
+      MYSQL_PASSWORD: fabiany2024
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./mysql-data:/var/lib/mysql

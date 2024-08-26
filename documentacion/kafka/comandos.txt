@@ -1,0 +1,8 @@
+levantar imagen :   docker-compose up -d
+para imagent : docker-compose down
+remover imagen : docker rm +name
+
+entrar servidro kafka :    docker exec -it kafka bash
+asegurar que topico exite :    kafka-topics.sh --list --bootstrap-server localhost:9092
+ver mensajes :    kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic test --from-beginning
+

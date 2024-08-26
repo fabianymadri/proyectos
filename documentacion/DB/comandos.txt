@@ -1,0 +1,16 @@
+levantar imagen : docker-compose up -d
+para imagen :   docker-compose down
+para imagen : docker stop +name
+
+navegar por la base de datos : docker exec -it mysql-container mysql -u root -p
+contrase root : root
+
+
+conectarse por cliente en consola sin el docker : mysql -h 127.0.0.1 -P 3306 -u fabiany -p
+
+SHOW DATABASES;
+USE nombre_db;
+SHOW TABLES;
+DESCRIBE nombre_de_la_tabla;
+
+
