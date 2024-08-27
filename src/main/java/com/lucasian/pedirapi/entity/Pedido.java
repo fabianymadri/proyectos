@@ -13,12 +13,22 @@ public class Pedido {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @ManyToOne
+    @JoinColumn(name = "cliente_id", nullable = false)
+    private Cliente cliente;
+
+
     @OneToMany(mappedBy = "pedido")
     private List<PedidoProducto> productos;
 
     private Integer cantidad;
     private BigDecimal precioUnitario;
+    private BigDecimal total;
+
+    @Column(name = "fecha_creacion", nullable = false, updatable = false)
     private LocalDateTime fechaCreacion;
+
+    @Column(name = "usuario_creacion", nullable = false, length = 50)
     private String usuarioCreacion;
 
     public Long getId() {
@@ -69,4 +79,20 @@ public class Pedido {
         this.usuarioCreacion = usuarioCreacion;
     }
 
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public BigDecimal getTotal() {
+        return total;
+    }
+
+    public void setTotal(BigDecimal total) {
+        this.total = total;
+    }
 }
