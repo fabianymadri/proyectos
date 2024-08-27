@@ -3,6 +3,8 @@ package com.lucasian.pedirapi.controller;
 import com.lucasian.pedirapi.entity.Notificacion;
 import com.lucasian.pedirapi.service.NotificacionService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -27,5 +29,11 @@ public class NotificacionController {
     @PostMapping
     public Notificacion createNotification(@RequestBody Notificacion notificacion) {
         return notificacionService.createNotification(notificacion);
+    }
+
+    @GetMapping("/test")
+    public  ResponseEntity<String> createNotification() {
+        notificacionService.createNotification();
+        return new ResponseEntity<>("Enviado", HttpStatus.OK);
     }
 }

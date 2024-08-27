@@ -13,12 +13,17 @@ public class NotificacionService {
     @Autowired
     private NotificacionRepository notificacionRepository;
 
+    @Autowired
+    private EnvioService envioService;
+
+
     public Notificacion createNotificacion(Notificacion notificacion) {
         return notificacionRepository.save(notificacion);
     }
 
     public void sendNotificacion(Notificacion notificacion) {
-        // Lógica para enviar la notificación (por ejemplo, correo electrónico)
+
+        envioService.enviarCorreo("fabianymadrigalsalazar@gmail.com", "Pedido", "notificacion del pedido ");
 
         notificacion.setStatus("SENT");
         notificacionRepository.save(notificacion);
@@ -34,5 +39,9 @@ public class NotificacionService {
 
     public Notificacion createNotification(Notificacion notificacion) {
         return notificacionRepository.save(notificacion);
+    }
+
+    public void createNotification() {
+        envioService.enviarCorreo("fabianymadrigalsalazar@gmail.com", "Pedido", "notificacion del pedido ");
     }
 }
